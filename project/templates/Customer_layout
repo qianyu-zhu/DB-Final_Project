@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<header>
+    <a href="/" class="brand" style="color:#af9d7a;">HappyTrip</a>
+    <div class="menu-btn"></div>
+    <div class="navigation">
+      <div class="navigation-items">
+
+        <a href="CustomerViewMyFlights" style="color:#af9d7a;">ViewMyFlights</a>
+        <a href="CustomerSearchFlights" style="color:#af9d7a;">SearchFlights</a>
+        <a href="CustomerPurchaseTickets" style="color:#af9d7a;">PurchaseTickets</a>
+        <a href="CustomerTrackSpending" style="color:#af9d7a;">TrackSpending</a>
+        <a href="Logout" style="color:#af9d7a;">Logout</a>
+      </div>
+    </div>
+  </header>
+
+{% block content %}
+{% endblock %}
+
+
+</body>
+</html> 

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<header>
+    <div class="menu-btn"></div>
+    <div class="navigation">
+      <div class="navigation-items">
+        <a href="AgentViewMyFlights" style="color:#af9d7a;">ViewFlights</a>
+        <a href="AgentSearchFlights" style="color:#af9d7a;">SearchFlights</a>
+        <a href="AgentPurchaseTickets" style="color:#af9d7a;">PurchaseTickets</a>
+        <a href="AgentMyCommission" style="color:#af9d7a;">MyCommission</a>
+        <a href="AgentTopCustomer" style="color:#af9d7a;">TopCustomers</a>
+        <a href="AgentCustomerInfo" style="color:#af9d7a;">CusInfo</a>
+        <a href="Logout" style="color:#af9d7a;">Logout</a>
+      </div>
+    </div>
+  </header>
+
+{% block content %}
+{% endblock %}
+
+
+</body>
+</html> 

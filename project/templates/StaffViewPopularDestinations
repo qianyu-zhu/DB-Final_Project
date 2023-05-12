@@ -1,0 +1,77 @@
+{% extends 'Staff_layout' %}
+
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/daterangepicker.css"/>
+    <link rel="stylesheet" href="../static/css/exploreschedule_style.css"/>
+    <link rel="stylesheet" href="../static/css/form_animate.css"/>
+    <link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .title {
+            margin-left:320px;
+        }
+
+    </style>
+</head>
+<h1 align="center" class = 'title' style="color:#fff;">View Top 3 (Tie Included) Popular Destinations</h1>
+<section class="search">
+
+<div class = 'container'>
+<div class="group">
+<div id="msg1" style="color:rgb(182, 103, 0)">{{ msg1 }}</div>
+{% if last_3month_topdest %} 
+<div class="grid_3 grid_5 animated wow slideInUp">
+    <div class="bs-docs-example animated wow slideInUp" data-wow-delay=".5s">
+        <table class="table" >
+            <thead>
+                <tr>
+                    <th>Top 3 Popular Destinations OF Past 3 Months</th>
+                </tr>
+            </thead>    
+            <tbody>
+                {% for row in last_3month_topdest %}   
+                    <tr>
+                        <td>{{row['airport_city']}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endif %} 
+</div>
+
+<div class="group">
+<div id="msg2" style="color:rgb(182, 103, 0)">{{ msg2 }}</div>
+{% if last_year_topdest %} 
+<div class="grid_3 grid_5 animated wow slideInUp">
+    <div class="bs-docs-example animated wow slideInUp" data-wow-delay=".5s">
+        <table class="table" >
+            <thead>
+                <tr>
+                    <th>Top 3 Popular Destinations OF Past 1 Year</th>
+                </tr>
+            </thead>    
+            <tbody>
+                {% for row in last_year_topdest %}   
+                    <tr>
+                        <td>{{row['airport_city']}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endif %} 
+</div>
+
+</div>
+
+</section>
+
+{% endblock %} 

@@ -1,0 +1,124 @@
+{% extends 'Staff_layout' %}
+
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/daterangepicker.css"/>
+    <link rel="stylesheet" href="../static/css/exploreschedule_style.css"/>
+    <link rel="stylesheet" href="../static/css/form_animate.css"/>
+    <link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .title {
+            margin-left:320px;
+        }
+
+    </style>
+</head>
+<h1 align="center" class = 'title' style="color:#fff;">View Top 5 (Tie Included) Booking Agents</h1>
+<section class="search">
+
+<div class = 'container'>
+<div class="group">
+<div id="msg1" style="color:rgb(182, 103, 0)">{{ msg1 }}</div>
+{% if last_month_bycommission %} 
+<div class="grid_3 grid_5 animated wow slideInUp">
+    <div class="bs-docs-example animated wow slideInUp" data-wow-delay=".5s">
+        <table class="table" >
+            <thead>
+                <tr>
+                    <th>Top 5 Booking_Agent OF Past Month By Commission</th>
+                </tr>
+            </thead>    
+            <tbody>
+                {% for row in last_month_bycommission %}   
+                    <tr>
+                        <td>{{row['booking_agent_id']}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endif %} 
+</div>
+
+<div class="group">
+<div id="msg2" style="color:rgb(182, 103, 0)">{{ msg2 }}</div>
+{% if last_month_bynum %} 
+<div class="grid_3 grid_5 animated wow slideInUp">
+    <div class="bs-docs-example animated wow slideInUp" data-wow-delay=".5s">
+        <table class="table" >
+            <thead>
+                <tr>
+                    <th>Top 5 Booking_Agent OF Past Month By No. of Tickets</th>
+                </tr>
+            </thead>    
+            <tbody>
+                {% for row in last_month_bynum %}   
+                    <tr>
+                        <td>{{row['booking_agent_id']}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endif %} 
+</div>
+
+<div class="group">
+<div id="msg3" style="color:rgb(182, 103, 0)">{{ msg3 }}</div>
+{% if last_6month_bycommission %} 
+<div class="grid_3 grid_5 animated wow slideInUp">
+    <div class="bs-docs-example animated wow slideInUp" data-wow-delay=".5s">
+        <table class="table" >
+            <thead>
+                <tr>
+                    <th>Top 5 Booking_Agent OF Past 6 Month By Commission</th>
+                </tr>
+            </thead>    
+            <tbody>
+                {% for row in last_6month_bycommission %}   
+                    <tr>
+                        <td>{{row['booking_agent_id']}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endif %} 
+</div>
+
+<div class="group">
+<div id="msg4" style="color:rgb(182, 103, 0)">{{ msg4 }}</div>
+{% if last_6month_bynum %} 
+<div class="grid_3 grid_5 animated wow slideInUp">
+    <div class="bs-docs-example animated wow slideInUp" data-wow-delay=".5s">
+        <table class="table" >
+            <thead>
+                <tr>
+                    <th>Top 5 Booking_Agent OF Past 6 Month By No. of Tickets</th>
+                </tr>
+            </thead>    
+            <tbody>
+                {% for row in last_6month_bynum %}   
+                    <tr>
+                        <td>{{row['booking_agent_id']}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endif %} 
+</div>
+</div>
+
+</section>
+
+{% endblock %} 

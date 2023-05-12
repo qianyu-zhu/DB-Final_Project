@@ -1,0 +1,4 @@
+*.DS_Store
+*.pyc
+project/static/image/*
+project/static/video/*

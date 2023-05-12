@@ -1,0 +1,165 @@
+{% extends 'layout' %}
+
+{% block navigation_bar %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/daterangepicker.css"/>
+    <link rel="stylesheet" href="../static/css/exploreschedule_style.css"/>
+    <link rel="stylesheet" href="../static/css/register.css"/>
+    <link rel="stylesheet" href="../static/css/form_animate.css"/>
+    <link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+
+<body>
+    <div class="container">
+        <div class="tab_box">
+            <button class="tab_btn active" id="customer_register_button">Customer</button>
+            <button class="tab_btn" id="agent_register_button">Booking Agent</button>
+            <button class="tab_btn" id="staff_register_button">Airline Staff</button>
+            <div class="line"></div>
+        </div>
+        <div class="content_box">
+            <div class="content active">
+                <div id="msg" style="color:rgb(182, 103, 0)">{{ msg1 }}</div>
+                <h2>Customer</h2>
+                <form class="form-group" action="CustomerRegister" method="POST">
+        
+                    <label style="color: #af9d7a">Email</label>
+                    <input type="text" id = "Email" class="form-control"  name="Email" required/>
+        
+        
+                    <label style="color: #af9d7a">Name</label>
+                    <input type="text" id = "Name" class="form-control"  name="Name" required/>
+                
+        
+                    <label style="color: #af9d7a">Password</label>
+                    <input type="text" id = "Password" class="form-control"  name="Password" required/>
+
+                    <label style="color: #af9d7a">Building No.</label>
+                    <input type="text" id = "Building_Num" class="form-control"  name="Building_Num" required/>
+
+                    <label style="color: #af9d7a">Street</label>
+                    <input type="text" id = "Street" class="form-control"  name="Street" required/>
+
+                    <label style="color: #af9d7a">City</label>
+                    <input type="text" id = "City" class="form-control"  name="City" required/>
+
+                    <label style="color: #af9d7a">State</label>
+                    <input type="text" id = "State" class="form-control"  name="State" />
+
+                    <label style="color: #af9d7a">Phone Number</label>
+                    <input type="text" id = "Phone_Num" class="form-control"  name="Phone_Num" required/>
+
+                    <label style="color: #af9d7a">Passport Number</label>
+                    <input type="text" id = "Passport_Num" class="form-control"  name="Passport_Num" required/>
+
+                    <label style="color: #af9d7a">Passport Expiration Date</label>
+                    <input type="text" id = "Passport_Expiration_Date" class="form-control"  name="Passport_Expiration_Date" />
+
+                    <label style="color: #af9d7a">Passport Country</label>
+                    <input type="text" id = "Passport_Country" class="form-control"  name="Passport_Country" required/>
+
+                    <label style="color: #af9d7a">Date Of Birth</label>
+                    <input type="text" id = "Date_Of_Birth" class="form-control"  name="Date_Of_Birth" required/>
+                    
+                    <button type="submit" value="Register" class="btn btn-success" style="margin-top: 10px; color: #fff; background-color: burlywood; border-color: burlywood;">Register</button>
+                </form>
+            </div>
+
+            <div class="content">
+                <div id="msg" style="color:rgb(182, 103, 0)">{{ msg2 }}</div>
+                <h2>Booking Agent</h2>
+                <form class="form-group" action="AgentRegister" method="POST">
+        
+                    <label style="color: #af9d7a">Email</label>
+                    <input type="text" id = "Email" class="form-control"  name="Email" required/>
+        
+        
+                    <label style="color: #af9d7a">Password</label>
+                    <input type="text" id = "Password" class="form-control"  name="Password"  required/>
+                
+        
+                    <label style="color: #af9d7a">Booking Agent ID</label>
+                    <input type="text" id = "Booking_Agent_ID" class="form-control"  name="Booking_Agent_ID"  required/>
+                    
+                    <button type="submit" value="Register" class="btn btn-success" style="margin-top: 10px; color: #fff; background-color: burlywood; border-color: burlywood;">Register</button>
+                </form>
+            </div>
+
+            <div class="content">
+                <div id="msg" style="color:rgb(182, 103, 0)">{{ msg3 }}</div>
+                <h2>Airline Staff</h2>
+                <form class="form-group" action="AirlineStaffRegister" method="POST">
+        
+                    <label style="color: #af9d7a">Username</label>
+                    <input type="text" id = "Username" class="form-control"  name="Username" required/>
+        
+        
+                    <label style="color: #af9d7a">Password</label>
+                    <input type="text" id = "Password" class="form-control"  name="Password"  required/>
+                
+        
+                    <label style="color: #af9d7a">First Name</label>
+                    <input type="text" id = "First_Name" class="form-control"  name="First_Name" required/>
+
+                    <label style="color: #af9d7a">Last Name</label>
+                    <input type="text" id = "Last_Name" class="form-control"  name="Last_Name" required/>
+        
+        
+                    <label style="color: #af9d7a">Date Of Birth</label>
+                    <input type="text" id = "Date_Of_Birth" class="form-control"  name="Date_Of_Birth" required/>
+                
+        
+                    <label style="color: #af9d7a">Airline Name</label>
+                    <input type="text" id = "Airline_Name" class="form-control"  name="Airline_Name" required/>
+                    
+                    <button type="submit" value="Register" class="btn btn-success" style="margin-top: 10px; color: #fff; background-color: burlywood; border-color: burlywood;">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<script>
+    const tabs = document.querySelectorAll('.tab_btn');
+    const all_content = document.querySelectorAll('.content');
+
+    tabs.forEach((tab, index) => {
+        tab.addEventListener('click', (e) => {
+            tabs.forEach(tab=>{tab.classList.remove('active')});
+            tab.classList.add('active');
+
+            var line=document.querySelector('.line');
+            line.style.width = e.target.offsetWidth + "px";
+            line.style.left = e.target.offsetLeft + "px";
+
+            all_content.forEach(content =>{content.classList.remove('active')})
+            all_content [index].classList.add('active');
+        })
+
+        })
+</script>
+
+<script>
+    var msg1 = "{{msg1}}"
+    if (msg1){
+        document.getElementById("customer_register_button").click()
+    }
+
+    var msg2 = "{{msg2}}"
+    if (msg2){
+        document.getElementById("agent_register_button").click()
+    }
+
+    var msg3 = "{{msg3}}"
+    if (msg3){
+        document.getElementById("staff_register_button").click()
+    }
+    
+</script>
+
+{% endblock %} 

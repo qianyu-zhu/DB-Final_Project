@@ -1,0 +1,187 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/css/general_compare.css"/>
+    <link rel="stylesheet" href="../static/css/form_animate.css"/>
+    <link rel="stylesheet" href="../static/css/daterangepicker.css"/>
+    <style>
+    .chartBox {
+      width: 350px;
+    }
+  </style>
+  </head>
+
+<header>
+    <div class="menu-btn"></div>
+    <div class="navigation">
+      <div class="navigation-items">
+
+        <a href="StaffViewMyFlights" style="color:#af9d7a;">ViewFlights</a>
+        <a href="StaffViewFlightCustomer" style="color:#af9d7a;">ListFlightCust</a>
+        <a href="StaffAdd" style="color:#af9d7a;">Add</a>
+        <a href="StaffChange" style="color:#af9d7a;">Change</a>
+        <a href="StaffViewTopAgents" style="color:#af9d7a;">TopAgt</a>
+        <a href="StaffViewFrequentCustomer" style="color:#af9d7a;">FreqCust</a>
+        <a href="StaffReport" style="color:#af9d7a;">Report</a>
+        <a href="StaffComparison" style="color:#af9d7a;">Compare</a>        
+        <a href="StaffViewPopularDestinations" style="color:#af9d7a;">Dest</a>   
+
+        <a href="Logout" style="color:#af9d7a;">Logout</a>
+      </div>
+    </div>
+  </header>
+<body>
+    <div class="chartCard">
+            
+        <div class="chartBox">
+          <div id="msg1" style="color:rgb(182, 103, 0)">{{ msg1 }}</div>
+
+          <p>Last Year Revenue</p>
+          <canvas id="myChart"></canvas>
+        </div>
+        <div class="chartBox">
+          <div id="msg2" style="color:rgb(182, 103, 0)">{{ msg2 }}</div>
+
+          <p>Last Month Revenue</p>
+          <canvas id="myChart2"></canvas>
+        </div>
+      </div>
+</body>
+    
+
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-autocolors"></script> -->
+
+<script>
+// setup 
+var bg_c1 = [
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ]
+var bd_c1 = [
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ]
+var bg_c2 = [
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)'
+            ]
+var bd_c2 = [
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)'
+            ]
+
+
+
+              
+var l1 = "{{last_year_revenue_list}}";
+var parsed_l1 = JSON.parse(l1);
+
+var l2 = "{{last_month_revenue_list}}";
+var parsed_l2 = JSON.parse(l2);
+
+const autocolors = window['chartjs-plugin-autocolors'];
+const data = {
+  labels: ['Direct','Indirect'],
+  datasets: [{
+    label: 'last_year_revenue',
+    data: parsed_l1,
+    backgroundColor: bg_c1,
+    borderColor: bd_c1
+    // borderWidth: 1
+  }]
+};
+
+// config 
+const config = {
+  type: 'pie',
+  data,
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    },
+  }
+  }
+;
+// render init block
+const myChart = new Chart(
+  document.getElementById('myChart'),
+  config
+);
+// //last_month_revenue pie chart
+const data2 = {
+  labels: ['Direct','Indirect'],
+  datasets: [{
+    label: 'last_month_revenue',
+    data: parsed_l2,
+    backgroundColor: bg_c2,
+    borderColor: bd_c2
+    // borderWidth: 1
+  }]
+};
+
+// config 
+const config2 = {
+  type: 'pie',
+  data:data2,
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    },
+  }
+  }
+;
+
+// render init block
+const myChart2 = new Chart(
+  document.getElementById('myChart2'),
+  config2
+);
+
+// Instantly assign Chart.js version
+const chartVersion = document.getElementById('chartVersion');
+chartVersion.innerText = Chart.version;
+
+
+</script>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="../static/js/moment.min.js"></script>
+<script src="../static/js/daterangepicker.js"></script>
+
+<script>
+    $('#TicketSoldDateRange').daterangepicker({
+        timePicker: true,
+        singleDatePicker: false,
+        minDate:false,
+        startDate: moment().startOf('days').add(-30, 'days'), 
+        endDate: moment().startOf('days'),
+        locale: {
+            format: "YYYY/MM/DD",
+            applyLabel: "确认",
+            cancelLabel: "取消",
+
+            daysOfWeek: ["日","一","二","三","四", "五","六"],
+            monthNames: ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"],
+            firstDay: 1,
+                }
+    });
+
+
+    
+</script>
+
+
+</html>

@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+
+header{
+    z-index: 999;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 200px;
+    transition: 0.5s ease;
+  }
+
+header .brand{
+  color: #fff;
+  font-size: 1.5em;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+}  
+
+header .navigation{
+    position: relative;
+  }
+  
+header .navigation .navigation-items a{
+position: relative;
+color: #fff;
+font-size: 1em;
+font-weight: 500;
+text-decoration: none;
+margin-left: 30px;
+transition: 0.3s ease;
+}
+
+header .navigation .navigation-items a:before{
+content: '';
+position: absolute;
+background: #fff;
+width: 0;
+height: 3px;
+bottom: 0;
+left: 0;
+transition: 0.3s ease;
+}
+
+header .navigation .navigation-items a:hover:before{
+width: 100%;
+}
+
+.title{
+  position: absolute;
+  letter-spacing: 0px;
+  margin-top: 240px;
+  margin-left:350px;
+}
+
+section {
+  padding-top: 330px;
+  padding-bottom: 50px;
+  padding-left: 30px;
+  padding-right: 50px;
+}
+
+.search {
+
+    background: url("../image/schedule_image/header.jpg") no-repeat;
+    background-size: 180% 300px
+
+  }
+
+
+.search .container{
+  margin-top: 0px;
+}
+
+.search .group {
+    margin-top: 0px;
+    margin-left: 150px;
+  }
+
+.search .table .tr{
+  padding: 15px;
+}
+
+tr:hover {background-color: #D6EEEE;}
+
+
+#DepartureDate {
+    background: url("../image/schedule_image/calendar.jpg");
+    background-size: 30px;
+    background-repeat: no-repeat;
+    padding-left: 50px;
+    background-position: 1% 30%;
+}
+
+#ArrivalDate {
+  background: url("../image/schedule_image/calendar.jpg");
+  background-size: 30px;
+  background-repeat: no-repeat;
+  padding-left: 50px;
+  background-position: 1% 30%;
+}
+
+#Passport_Expiration_Date {
+  background: url("../image/schedule_image/calendar.jpg");
+  background-size: 30px;
+  background-repeat: no-repeat;
+  padding-left: 50px;
+  background-position: 1% 30%;
+}
+
+#Date_Of_Birth {
+background: url("../image/schedule_image/calendar.jpg");
+background-size: 30px;
+background-repeat: no-repeat;
+padding-left: 50px;
+background-position: 1% 30%;
+}
+
+#Date_Of_Birth2 {
+  background: url("../image/schedule_image/calendar.jpg");
+  background-size: 30px;
+  background-repeat: no-repeat;
+  padding-left: 50px;
+  background-position: 1% 30%;
+  }
+
+
+
+#From {
+    background: url("../image/schedule_image/Cupid.png") no-repeat;
+    background-size: 28px;
+    padding-left: 40px;
+    background-position: 0.8% 40%;
+}
+
+#To{
+  background: url("../image/schedule_image/Cupid.png") no-repeat;
+  background-size: 28px;
+  padding-left: 40px;
+  background-position: 0.8% 40%;
+}

@@ -1,0 +1,112 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/css/general_compare.css"/>
+    <link rel="stylesheet" href="../static/css/form_animate.css"/>
+    <link rel="stylesheet" href="../static/css/daterangepicker.css"/>
+  </head>
+
+<header>
+    <div class="menu-btn"></div>
+    <div class="navigation">
+      <div class="navigation-items">
+
+        <a href="AgentViewMyFlights" style="color:#af9d7a;">ViewFlights</a>
+        <a href="AgentSearchFlights" style="color:#af9d7a;">SearchFlights</a>
+        <a href="AgentPurchaseTickets" style="color:#af9d7a;">PurchaseTickets</a>
+        <a href="AgentMyCommission" style="color:#af9d7a;">MyCommission</a>
+        <a href="AgentTopCustomer" style="color:#af9d7a;">TopCustomers</a>
+        <a href="AgentCustomerInfo" style="color:#af9d7a;">CusInfo</a>
+        <a href="Logout" style="color:#af9d7a;">Logout</a>
+
+      </div>
+    </div>
+  </header>
+<body>
+    <div class="canvas-container">
+            
+        <div class="chartBox">
+          <canvas id="myChart"></canvas>
+        </div>
+        <div class="chartBox">
+          <canvas id="myChart2"></canvas>
+        </div>
+    </div>
+</body>
+
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-autocolors"></script> -->
+
+<script>
+// setup 
+
+function isJsonString(str) {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
+    }
+    return true;
+}
+
+// console.log({{mostTicName}})
+
+var l1 = {{mostTicName}}
+var l2 = {{mostTicValue}}
+var l3 = {{mostComName}}
+var l4 = {{mostComValue}}
+console.log(l1)
+console.log(l2)
+console.log(l3)
+console.log(l4)
+// var parsed_l1 = JSON.dumps(l1)
+// var parsed_l1 = JSON.stringify(l1)
+// console.log(parsed_l1);
+var bg_c = [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)'
+            ]
+var bd_c = [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)'
+            ]
+
+
+new Chart("myChart", {
+  type: 'bar',
+  data: {
+    labels: l1,
+    datasets: [{
+      label: 'Top customers based on Num. tickets in past 6 months',
+      backgroundColor: bg_c,
+      borderColor: bd_c,
+      data: l2
+    }]
+  },
+});
+
+new Chart("myChart2", {
+  type: 'bar',
+  data: {
+    labels: l3,
+    datasets: [{
+      label: 'Top customers based on commission in past 1 year',
+      backgroundColor: bg_c,
+      borderColor: bd_c,
+      data: l4
+    }]
+  },
+});
+</script>
+
+</html>

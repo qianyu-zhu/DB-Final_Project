@@ -1,0 +1,76 @@
+{% extends 'Customer_layout' %}
+
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/daterangepicker.css"/>
+    <link rel="stylesheet" href="../static/css/exploreschedule_style.css"/>
+    <link rel="stylesheet" href="../static/css/form_animate.css"/>
+    <link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+<h1 align="center" class = 'title' style="color:#fff;">Ticket Purchase</h1>
+<section class="search">
+
+    <div class="container">
+        
+        <div class="group">
+        
+        <form class="form-group" action="CustomerPurchaseTickets" method="POST">
+
+            <label style="color: #af9d7a">Airline Name</label>
+            <input type="text" id = "Airline_Name" class="form-control"  name="Airline_Name" placeholder="Eastern Airline" required/>
+
+
+            <label style="color: #af9d7a">Flight Num</label>
+            <input type="text" id = "Flight_Num" class="form-control"  name="Flight_Num" placeholder="1" required/>
+        
+
+            <label style="color: #af9d7a">Num of Tickets to Purchase for this Flight</label>
+            <input type="text" id = "Num_of_Tickets_to_Purchase_for_this_Flight" class="form-control"  name="Num_of_Tickets_to_Purchase_for_this_Flight"  required/>
+            
+            <button type="submit" value="Submit" class="btn btn-success" style="margin-top: 20px; color: #fff; background-color: burlywood; border-color: burlywood;">Purchase</button>
+
+        </form>
+        <div id="msg" style="color:rgb(182, 103, 0)">{{ msg }}</div>
+        </div>
+    </div>
+        
+
+
+</section>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="../static/js/moment.min.js"></script>
+<script src="../static/js/daterangepicker.js"></script>
+
+<script>
+    $('#DepartureDate').daterangepicker({
+        timePicker: true,
+        minDate:new Date(),
+        startDate: moment().startOf('days'), 
+        endDate: moment().startOf('days').add(0, 'days'),
+        locale: {
+            format: "YYYY/MM/DD",
+            applyLabel: "确认",
+            cancelLabel: "",
+
+            daysOfWeek: ["日","一","二","三","四", "五","六"],
+            monthNames: ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"],
+            firstDay: 1,
+                }
+    });
+
+
+    
+</script>
+
+
+{% endblock %} 

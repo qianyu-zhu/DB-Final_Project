@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<header>
+    <div class="menu-btn"></div>
+    <div class="navigation">
+      <div class="navigation-items">
+        <a href="StaffViewMyFlights" style="color:#af9d7a;">ViewFlights</a>
+        <a href="StaffViewFlightCustomer" style="color:#af9d7a;">ListFlightCust</a>
+        <a href="StaffAdd" style="color:#af9d7a;">Add</a>
+        <a href="StaffChange" style="color:#af9d7a;">Change</a>
+
+        <a href="StaffViewTopAgents" style="color:#af9d7a;">TopAgt</a>
+        <a href="StaffViewFrequentCustomer" style="color:#af9d7a;">FreqCust</a>
+        <a href="StaffReport" style="color:#af9d7a;">Report</a>
+        <a href="StaffComparison" style="color:#af9d7a;">Compare</a>        
+        <a href="StaffViewPopularDestinations" style="color:#af9d7a;">Dest</a>   
+
+        <a href="Logout" style="color:#af9d7a;">Logout</a>
+      </div>
+    </div>
+  </header>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/daterangepicker.css"/>
+    <link rel="stylesheet" href="../static/css/exploreschedule_style.css"/>
+    <link rel="stylesheet" href="../static/css/register.css"/>
+    <link rel="stylesheet" href="../static/css/form_animate.css"/>
+    <link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+
+<body>
+    <div class="container">
+        <div class="tab_box">
+            <button class="tab_btn active" id = "status_button">FlightStatus</button>
+            <div class="line"></div>
+        </div>
+        <div class="content_box">
+            <div class="content active">
+                <div id="msg" style="color:rgb(182, 103, 0)">{{ msg1 }}</div>
+                <h2>Change Flight Status</h2>
+                <form class="form-group" action="StaffChangeStatus" method="POST">
+        
+                    <label style="color: #af9d7a">Flight No.</label>
+                    <input type="text" id = "Flight_Num" class="form-control"  name="Flight_Num" required/>
+
+                    <label style="color: #af9d7a">Change Status To</label>
+                    <input type="text" id = "To_Status" class="form-control"  name="To_Status" required/>
+                    
+                    <button type="submit" value="Change" class="btn btn-success" style="margin-top: 20px; color: #fff; background-color: burlywood; border-color: burlywood;">Change</button>
+                </form>
+            </div>
+
+            
+        </div>
+    </div>
+
+<!-- <script>
+    const tabs = document.querySelectorAll('.tab_btn');
+    const all_content = document.querySelectorAll('.content');
+
+    tabs.forEach((tab, index) => {
+        tab.addEventListener('click', (e) => {
+            tabs.forEach(tab=>{tab.classList.remove('active')});
+            tab.classList.add('active');
+
+            var line=document.querySelector('.line');
+            line.style.width = e.target.offsetWidth + "px";
+            line.style.left = e.target.offsetLeft + "px";
+
+            all_content.forEach(content =>{content.classList.remove('active')})
+            all_content [index].classList.add('active');
+        })
+
+        })
+</script>
+
+<script>
+    var msg1 = "{{msg1}}"
+    if (msg1){
+        document.getElementById("status_button").click()
+    }
+
+    
+</script> -->
+</body>
+</html>

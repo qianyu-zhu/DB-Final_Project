@@ -1,0 +1,63 @@
+{% extends 'Staff_layout' %}
+
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/daterangepicker.css"/>
+    <link rel="stylesheet" href="../static/css/exploreschedule_style.css"/>
+    <link rel="stylesheet" href="../static/css/form_animate.css"/>
+    <link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+<h1 align="center" class = 'title' style="color:#fff;">View Flight Customer List</h1>
+<section class="search">
+<div class="container">
+    <div class="group">   
+    <form class="form-group" action="StaffViewFlightCustomer" method="POST">
+        
+        <label style="color: #af9d7a">Flight Num</label>
+        <input type="text" id = "Flight_Num" class="form-control"  name="Flight_Num" required/>            
+        <button type="submit" value="View" class="btn btn-success" style="margin-top: 20px; background-color: #af9d7a;border-color: #af9d7a;">View</button>
+
+    </form>
+    <div id="msg3" style="color:rgb(182, 103, 0)">{{ msg3 }}</div>
+    </div>
+
+    <div class="group">
+        {% if customer_list %} 
+        <div class="grid_3 grid_5 animated wow slideInUp">
+            <div class="bs-docs-example animated wow slideInUp" data-wow-delay=".5s">
+                <table class="table" >
+                    
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+        
+                        </tr>
+                    </thead>    
+        
+                    <tbody>
+                        {% for row in customer_list %}    
+                            <tr>
+                                <td>{{row.name}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                    
+                </table>
+            </div>
+        </div>
+        {% endif %} 
+    </div>
+
+
+</div>
+
+
+
+</section>
+{% endblock %} 

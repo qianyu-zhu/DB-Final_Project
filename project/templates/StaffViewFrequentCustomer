@@ -1,0 +1,106 @@
+{% extends 'Staff_layout' %}
+
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/daterangepicker.css"/>
+    <link rel="stylesheet" href="../static/css/exploreschedule_style.css"/>
+    <link rel="stylesheet" href="../static/css/staff_viewtopagents.css"/>
+    <link rel="stylesheet" href="../static/css/form_animate.css"/>
+    <link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+<h1 align="center" class = 'title' style="color:#fff;">View Past Year's Most Frequent (Tie Included) Customer</h1>
+<section class="search">
+
+<div class = 'container'>
+<div class="group">
+<div id="msg1" style="color:rgb(182, 103, 0)">{{ msg1 }}</div>
+
+{% if top_freq_cust %} 
+<div class="grid_3 grid_5 animated wow slideInUp">
+    <div class="bs-docs-example animated wow slideInUp" data-wow-delay=".5s">
+        <table class="table" >
+            <thead>
+                <tr>
+                    <th>Top Frequent Customer OF Past Year</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Passport Country</th>
+                    <th>Total Num of Flights of Past Year</th>
+                </tr>
+            </thead>    
+            <tbody>
+                {% for row in top_freq_cust %}   
+                    <tr>
+                        <td>{{row['name']}}</td>
+                        <td>{{row['customer_email']}}</td>
+                        <td>{{row['phone_number']}}</td>
+                        <td>{{row['passport_country']}}</td>
+                        <td>{{row['total_flights']}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endif %} 
+
+{% if topcust_flightlist%}
+<div class="grid_3 grid_5 animated wow slideInUp">
+    <div class="bs-docs-example animated wow slideInUp" data-wow-delay=".5s">
+        <table class="table" >
+            <thead>
+                <tr>
+                </tr>
+            </thead>    
+            <tbody>
+                {% for row in topcust_flightlist %}
+                    <th>Customer Flight History</th>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Airline Name</th>
+                        <th>Flight No.</th>
+                        <th>Ticket Count</th>
+                        <th>Departure Time</th>
+                        <th>Departure Airport</th>
+                        <th>Arrival Time</th>
+                        <th>Arrival Airport</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                    </tr>   
+                    {% for flight in row %}  
+                    <tr>
+                        <td>{{flight['name']}}</td>
+                        <td>{{flight['customer_email']}}</td>
+                        <td>{{flight['airline_name']}}</td>
+                        <td>{{flight['flight_num']}}</td>
+                        <td>{{flight['ticket_count']}}</td>
+                        <td>{{flight['departure_time']}}</td>
+                        <td>{{flight['departure_airport']}}</td>
+                        <td>{{flight['arrival_time']}}</td>
+                        <td>{{flight['arrival_airport']}}</td>
+                        <td>{{flight['price']}}</td>
+                        <td>{{flight['status']}}</td>
+
+                    </tr>
+                    {% endfor %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endif %} 
+</div>
+
+</div>
+</section>
+    
+
+    
+{% endblock %} 

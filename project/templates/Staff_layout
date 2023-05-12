@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<header>
+    <div class="menu-btn"></div>
+    <div class="navigation">
+      <div class="navigation-items">
+        <a href="StaffViewMyFlights" >ViewFlights</a>
+        <a href="StaffViewFlightCustomer" >ListFlightCust</a>
+        <a href="StaffAdd" >Add</a>
+        <a href="StaffChange">Change</a>
+        <a href="StaffViewTopAgents" >TopAgt</a>
+        <a href="StaffViewFrequentCustomer" >FreqCust</a>
+        <a href="StaffReport" >Report</a>
+        <a href="StaffComparison" >Compare</a>        
+        <a href="StaffViewPopularDestinations" >Dest</a>   
+
+        <a href="Logout" style="color:#af9d7a;">Logout</a>
+      </div>
+    </div>
+  </header>
+
+{% block content %}
+{% endblock %}
+
+
+</body>
+</html> 

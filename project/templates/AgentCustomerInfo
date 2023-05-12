@@ -1,0 +1,88 @@
+{% extends 'Agent_layout' %}
+
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/daterangepicker.css"/>
+    <link rel="stylesheet" href="../static/css/exploreschedule_style.css"/>
+    <link rel="stylesheet" href="../static/css/form_animate.css"/>
+    <link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+<h1 align="center" class = 'title' style="color:#fff;">Customer Information</h1>
+
+<section class="search">
+    <div class="container">
+        <div class="group">
+            {% if c_list %} 
+                <table class="table" >
+                    <thead>
+                        <tr>
+                            <th style="background-color: #fef4e2;">The customers you booked tickets for</th>
+                        </tr>
+                    </thead>    
+                    <tbody>
+                        {% for row in c_list %}   
+                            <tr>
+                                <td>{{row['customer_email']}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %} 
+        </div>
+    
+
+        <div class="group">
+        <form class="form-group" action="AgentCustomerInfo" method="POST">
+
+            <label>Customer Email</label>
+            <input type="text" id = "CustomerEmail" class="form-control"  name="CustomerEmail" required/>
+            
+            <button type="submit" value="Submit" class="btn"  style="margin-top: 10px; color: #fff; background-color: burlywood; border-color: burlywood;">View</button>
+
+        </form>
+        </div>
+        <div class="group">
+            <div id="msg" style="color:rgb(182, 103, 0)">{{ msg }}</div>
+            {% if c %} 
+            <div class="grid_3 grid_5 animated wow slideInUp">
+                <div class="bs-docs-example animated wow slideInUp">
+                    <table class="table" >
+                        <thead>
+                            <tr>
+                                <th style="background-color: #fef4e2;">Customer Name: &nbsp; {{c['name']}} </th>
+                            </tr>
+                        </thead>    
+                        <tbody>
+                            <tr>
+                                <th>Customer Email: &nbsp; {{c['email']}} </th>
+                            </tr>
+                            <tr>
+                                <th>Address Line1: &nbsp; {{c['building_number']}} &nbsp; {{c['street']}}</th>
+                            </tr>
+                            <tr>
+                                <th>Address Line2: &nbsp;  {{c['city']}} &nbsp; {{c['state']}} </th>
+                            </tr>
+                            <tr>
+                                <th>Phone Number: &nbsp;  {{c['phone_number']}} </th>
+                            </tr>
+                            <tr>
+                                <th>Birthday: &nbsp;  {{c['date_of_birth']}} </th>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            {% endif %} 
+        </div>
+    </div>
+</section>
+
+
+{% endblock %} 

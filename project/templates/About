@@ -1,0 +1,53 @@
+{% extends 'layout' %}
+
+{% block navigation_bar %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/daterangepicker.css"/>
+    <link rel="stylesheet" href="../static/css/exploreschedule_style.css"/>
+    <link rel="stylesheet" href="../static/css/form_animate.css"/>
+    <link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+<h1 align="center" class = 'title' style="color:#fff;">About the Team</h1>
+
+<section class="search">
+
+    <div class = 'container'>
+        <div class="group">
+        <div class="grid_3 grid_5 animated wow slideInUp">
+            <div class="bs-docs-example animated wow slideInUp" data-wow-delay=".5s">
+                <table class="table" >
+                    <thead>
+                        <tr>
+                            <th>Arthor Name</th>
+                        </tr>
+                    </thead>    
+                    <tbody>
+                        <tr>
+                            <td>Pinyu Chen (pc2753)</td>
+                        </tr>
+                        <tr>
+                            <td>Qianyu Zhu (qz1086)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+ 
+</section>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="../static/js/moment.min.js"></script>
+<script src="../static/js/daterangepicker.js"></script>
+
+
+{% endblock %} 

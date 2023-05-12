@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<header>
+    <div class="menu-btn"></div>
+    <div class="navigation">
+      <div class="navigation-items">
+        <a href="StaffViewMyFlights" style="color:#af9d7a;">ViewFlights</a>
+        <a href="StaffViewFlightCustomer" style="color:#af9d7a;">ListFlightCust</a>
+        <a href="StaffAdd" style="color:#af9d7a;">Add</a>
+        <a href="StaffChange" style="color:#af9d7a;">Change</a>
+        <a href="StaffViewTopAgents" style="color:#af9d7a;">TopAgt</a>
+        <a href="StaffViewFrequentCustomer" style="color:#af9d7a;">FreqCust</a>
+        <a href="StaffReport" style="color:#af9d7a;">Report</a>
+        <a href="StaffComparison" style="color:#af9d7a;">Compare</a>        
+        <a href="StaffViewPopularDestinations" style="color:#af9d7a;">Dest</a>   
+
+        <a href="Logout" style="color:#af9d7a;">Logout</a>
+      </div>
+    </div>
+  </header>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/daterangepicker.css"/>
+    <link rel="stylesheet" href="../static/css/exploreschedule_style.css"/>
+    <link rel="stylesheet" href="../static/css/register.css"/>
+    <link rel="stylesheet" href="../static/css/form_animate.css"/>
+    <link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+
+<body>
+    <div class="container">
+        <div class="tab_box">
+            <button class="tab_btn active" id = "flight_button">Flight</button>
+            <button class="tab_btn" id="airplane_button">Plane</button>
+            <button class="tab_btn" id = 'airport_button'>Port</button>
+            <button class="tab_btn" id = 'permission_button'>Permission</button>
+            <button class="tab_btn" id = 'agent_button'>Agent</button>
+            <div class="line"></div>
+        </div>
+        <div class="content_box">
+            <div class="content active">
+                <div id="msg" style="color:rgb(182, 103, 0)">{{ msg1 }}</div>
+                {% if msg1 == "Successfully created a flight!" %} 
+                    <button onclick="CheckAfterAddingFlights()" id="CheckAfterAddingFlights"  style="margin-top: 20px; color: #fff; background-color: burlywood; border-color: burlywood;">CheckYourAdding</button>
+                {% endif %}
+                <h2>Create Flights</h2>
+                <form class="form-group" action="StaffAddFlights" method="POST">
+        
+                    <label style="color: #af9d7a">Airline Name</label>
+                    <input type="text" id = "Airline_Name" class="form-control"  name="Airline_Name" required/>
+        
+        
+                    <label style="color: #af9d7a">Flight No.</label>
+                    <input type="number" id = "Flight_Num" class="form-control"  name="Flight_Num" required/>
+                
+        
+                    <label style="color: #af9d7a">Departure Airport</label>
+                    <input type="text" id = "Departure_Airport" class="form-control"  name="Departure_Airport" required/>
+
+                    <label style="color: #af9d7a">Arrival Airport</label>
+                    <input type="text" id = "Arrival_Airport" class="form-control"  name="Arrival_Airport" required/>
+
+                    <label style="color: #af9d7a">Departure Time</label>
+                    <input type="datetime-local" id = "Departure_Time" class="form-control"  name="Departure_Time" required/>
+
+                    <label style="color: #af9d7a">Arrival Time</label>
+                    <input type="datetime-local" id = "Arrival_Time" class="form-control"  name="Arrival_Time" required/>
+
+                    <label style="color: #af9d7a">Price</label>
+                    <input type="text" id = "Price" class="form-control"  name="Price" />
+
+                    <label style="color: #af9d7a">Status</label>
+                    <input type="text" id = "Status" class="form-control"  name="Status" required/>
+
+                    <label style="color: #af9d7a">Airplane ID</label>
+                    <input type="number" id = "Airplane_ID" class="form-control"  name="Airplane_ID" required/>
+                    
+                    <button type="submit" value="Create" class="btn btn-success"  style="margin-top: 20px; color: #fff; background-color: burlywood; border-color: burlywood;">Create</button>
+                </form>
+               
+            </div>
+
+            <div class="content">
+                <div id="msg" style="color:rgb(182, 103, 0)">{{ msg2 }}</div>
+                <h2>Add Airplane</h2>
+                <form class="form-group" action="StaffAddAirplanes" method="POST">
+        
+                    <label style="color: #af9d7a">Airline Name</label>
+                    <input type="text" id = "Airline_Name" class="form-control"  name="Airline_Name" required/>
+        
+        
+                    <label style="color: #af9d7a">Airplane ID</label>
+                    <input type="number" id = "Airplane_ID" class="form-control"  name="Airplane_ID"  required/>
+                
+        
+                    <label style="color: #af9d7a">Seats</label>
+                    <input type="number" id = "Seats" class="form-control"  name="Seats"  required/>
+                    
+                    <button type="submit" value="Add" class="btn btn-success"  style="margin-top: 20px; color: #fff; background-color: burlywood; border-color: burlywood;" >Add</button>
+                </form>
+
+                {% if all_plane %} 
+                <div class="grid_3 grid_5 animated wow slideInUp">
+                    <div class="bs-docs-example animated wow slideInUp" data-wow-delay=".5s">
+                        <table class="table" >
+                            <p style="color: #af9d7a;">  All Airplanes</p>
+                            <thead>
+                                <tr>
+                                    <th>Airline_Name</th>
+                                    <th>Airplane_ID</th>
+                                    <th>Seats</th>
+                                </tr>
+                            </thead>    
+                            <tbody>
+                                {% for row in all_plane %}   
+                                    <tr>
+                                        <td>{{row['airline_name']}}</td>
+                                        <td>{{row['airplane_id']}}</td>
+                                        <td>{{row['seats']}}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                {% endif %} 
+            </div>
+
+            <div class="content">
+                <div id="msg" style="color:rgb(182, 103, 0)">{{ msg3 }}</div>
+                <h2>Add Airport</h2>
+                <form class="form-group" action="StaffAddAirports" method="POST">
+        
+                    <label style="color: #af9d7a">Airport Name</label>
+                    <input type="text" id = "Airport_Name" class="form-control"  name="Airport_Name" required/>
+        
+        
+                    <label style="color: #af9d7a">Airport City</label>
+                    <input type="text" id = "Airport_City" class="form-control"  name="Airport_City"  required/>
+                
+                    
+                    <button type="submit" value="Add" class="btn btn-success"  style="margin-top: 20px; color: #fff; background-color: burlywood; border-color: burlywood;">Add</button>
+                </form>
+            </div>
+
+            <div class="content">
+                <div id="msg" style="color:rgb(182, 103, 0)">{{ msg4 }}</div>
+                <h2>Add Permissions</h2>
+                <form class="form-group" action="StaffAddPermissions" method="POST">
+                    <p>1 stands for admin, 2 stands for operator, 3 stands for both.</p>
+                    <label style="color: #af9d7a">Staff Name to grant</label>
+                    <input type="text" id = "staff_to_grant" class="form-control"  name="staff_to_grant" required/>
+        
+        
+                    <label style="color: #af9d7a">Permission ID to grant</label>
+                    <input type="number" step="1" min="1" max="3" id = "permission_id_to_grant" class="form-control"  name="permission_id_to_grant" placeholder="1/2/3" required/>
+                
+                    
+                    <button type="submit" value="Grant" class="btn btn-success"  style="margin-top: 20px; color: #fff; background-color: burlywood; border-color: burlywood;">Grant</button>
+                </form>
+            </div>
+
+            <div class="content">
+                <div id="msg" style="color:rgb(182, 103, 0)">{{ msg5 }}</div>
+                <h2>Add Booking Agent</h2>
+                <form class="form-group" action="StaffAddBookingAgents" method="POST">
+        
+                    <label style="color: #af9d7a">Email Of Agent to add</label>
+                    <input type="text" id = "email_of_agent_to_add" class="form-control"  name="email_of_agent_to_add" required/>
+                
+                    
+                    <button type="submit" value="Add" class="btn btn-success"  style="margin-top: 20px; color: #fff; background-color: burlywood; border-color: burlywood;" >Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<script>
+    const tabs = document.querySelectorAll('.tab_btn');
+    const all_content = document.querySelectorAll('.content');
+
+    tabs.forEach((tab, index) => {
+        tab.addEventListener('click', (e) => {
+            tabs.forEach(tab=>{tab.classList.remove('active')});
+            tab.classList.add('active');
+
+            var line=document.querySelector('.line');
+            line.style.width = e.target.offsetWidth + "px";
+            line.style.left = e.target.offsetLeft + "px";
+
+            all_content.forEach(content =>{content.classList.remove('active')})
+            all_content [index].classList.add('active');
+        })
+
+        })
+</script>
+
+<script>
+    var msg1 = "{{msg1}}"
+    if (msg1){
+        document.getElementById("flight_button").click()
+    }
+
+    var msg2 = "{{msg2}}"
+    if (msg2){
+        document.getElementById("airplane_button").click()
+    }
+
+    var msg3 = "{{msg3}}"
+    if (msg3){
+        document.getElementById("airport_button").click()
+    }
+
+    var msg4 = "{{msg4}}"
+    if (msg4){
+        document.getElementById("permission_button").click()
+    }
+
+    var msg5 = "{{msg5}}"
+    if (msg5){
+        document.getElementById("agent_button").click()
+    }
+    
+</script>
+
+<script type="text/javascript">
+    document.getElementById("CheckAfterAddingFlights").onclick = function () {
+        location.href = "StaffViewMyFlights";
+    };
+</script>
+
+</body>
+</html>

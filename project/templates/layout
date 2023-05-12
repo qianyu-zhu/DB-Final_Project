@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<header>
+    <a href="/" class="brand">HappyTrip</a>
+    <div class="menu-btn"></div>
+    <div class="navigation">
+      <div class="navigation-items">
+        <a href="/">Home</a>
+        <a href="FlightSearch">FlightSearch</a>
+        <a href="StatusCheck">StatusCheck</a>
+        <a href="Register">Register</a>
+        <a href="Login">Login</a>
+        <a href="About">About</a>
+      </div>
+    </div>
+  </header>
+
+{% block navigation_bar %}
+{% endblock %}
+
+
+</body>
+</html> 
